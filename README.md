@@ -7,7 +7,6 @@
 🔗 **Steam Version:**  
 https://steamcommunity.com/sharedfiles/filedetails/?id=3600785538
 
----
 
 ## ⚠️ Disclaimer
 
@@ -23,7 +22,6 @@ All credit for the original base code goes to
 **[GamerGambit](https://github.com/GamerGambit)**.  
 This repository represents a UI and feature rework, not a full rewrite.
 
----
 
 ## 🧰 Overview
 
@@ -33,7 +31,6 @@ Players can purchase attachments directly in-game without requiring console comm
 
 This rework introduces a cleaner interface, improved interaction flow, and a new preset system that allows players to save and quickly reapply their preferred attachment configurations.
 
----
 
 ## 🔹 What’s New
 
@@ -42,7 +39,6 @@ This rework introduces a cleaner interface, improved interaction flow, and a new
 🌍 Multi-language support – English 🇬🇧 & German 🇩🇪  
 ⚙️ Improved usability – smoother and faster interaction  
 
----
 
 ## 🔸 Core Features
 
@@ -51,7 +47,6 @@ This rework introduces a cleaner interface, improved interaction flow, and a new
 - DarkRP support (configurable pricing or free access)  
 - CW2.0 compatibility  
 
----
 
 ## ❤️ Credits
 
@@ -59,6 +54,18 @@ Special thanks to **[GamerGambit](https://github.com/GamerGambit)**
 for the original foundation of this project.
 
 If you appreciate the original work, consider supporting the creator.
+
+## 📷 Pictures
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/779062ab-aa91-4646-acf1-b22cb242f9b5" width="32%" />
+  <img src="https://github.com/user-attachments/assets/7fe96263-3522-405b-80e4-560e1b56ba86" width="32%" />
+  <img src="https://github.com/user-attachments/assets/f01a4a85-5ac4-438a-b9f8-18a47f5b7b03" width="32%" />
+</p>
+
+
+
+
+
 
 # Original Repositiory Description!
 
