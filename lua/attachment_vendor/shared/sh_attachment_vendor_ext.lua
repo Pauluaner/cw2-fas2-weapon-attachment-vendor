@@ -80,14 +80,22 @@ function isARCCWAttachment(att)
 end
 
 function getAttachmentHeader(base, att)
+   local header = "";
    if (isCW2(base) or isFAS2(base)) then
-      return att.header;
+      header = att.header;
    elseif (isARCCW(base)) then
-      return att.PrintName;
+      header = att.PrintName;
+   else
+      ErrorNoHalt(string.format("[Attachment Vendor] Invalid weapon base for attachment header (%s).\n", base:GetPrintName()));
+      return "";
    end
-
-   ErrorNoHalt(string.format("[Attachment Vendor] Invalid weapon base for attachment header (%s).\n", base:GetPrintName()));
-   return "";
+   
+   -- Translate attachment header if language system is available
+   if (ATTACHMENT_VENDOR and ATTACHMENT_VENDOR.Lang and ATTACHMENT_VENDOR.Lang.GetText) then
+      return ATTACHMENT_VENDOR.Lang:GetText(string.lower(header), header) or header;
+   end
+   
+   return header;
 end
 
 function getAttachmentName(attname)
@@ -114,6 +122,28 @@ function getSuitableAttachments(base, att)
 
    ErrorNoHalt(string.format("[Attachment Vendor] Invalid weapon base for suitable attachments (%s).\n", base:GetPrintName()));
    return {};
+end
+
+-- SERVER helpers
+if (SERVER) then
+   function playerHasWeaponClass(ply, class)
+      if (not IsValid(ply)) then return false; end
+      for _, wep in pairs(ply:GetWeapons() or {}) do
+         if (isstring(class) and wep:GetClass() == class) then return true; end
+      end
+      return false;
+   end
+
+   function attachmentIsSuitableForWeapon(wepClass, attname)
+      local weptbl = weapons.Get(wepClass);
+      if (istable(weptbl) == false) then return false; end
+      if (isCW2Mag(attname) and weptbl.magType == attname) then return true; end
+      for _, att in pairs(istable(weptbl.Attachments) and weptbl.Attachments or {}) do
+         local list = getSuitableAttachments(weptbl, att) or {};
+         if (table.HasValue(list, attname)) then return true; end
+      end
+      return false;
+   end
 end
 
 function getAttachmentViewModel(base, attname)

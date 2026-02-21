@@ -48,6 +48,6 @@ function ENT:OnRemove()
    util.Effect("Explosion", effectdata);
    
    if (IsValid(self:Getowning_ent())) then
-      vendNotify(self:Getowning_ent(), NOTIFY_ERROR, 4, "Your Attachment Vendor has been destroyed!");
+      vendNotify(self:Getowning_ent(), NOTIFY_ERROR, 4, L("vendor_destroyed"));
    end
 end

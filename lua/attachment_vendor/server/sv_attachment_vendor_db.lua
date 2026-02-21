@@ -53,6 +53,7 @@ function ATTACHMENT_VENDOR.db:playerAddAttachment(ply, atts)
    end
 end
 
+
 function ATTACHMENT_VENDOR.db:playerRemoveAttachments(ply, atts)
    if (persistent.enabled == false) then return; end
    

@@ -1,4 +1,5 @@
 IncludeCS("attachment_vendor/configs/sh_attachment_vendor_config.lua");
+IncludeCS("attachment_vendor/configs/sh_attachment_vendor_lang.lua");
 IncludeCS("attachment_vendor/shared/sh_attachment_vendor_ext.lua");
 
 include("attachment_vendor/configs/sv_attachment_vendor_config.lua");
@@ -11,6 +12,11 @@ include("attachment_vendor/server/sv_attachment_vendor_ready.lua");
 AddCSLuaFile("attachment_vendor/client/cl_attachment_vendor_net.lua");
 AddCSLuaFile("attachment_vendor/client/cl_attachment_vendor_override.lua");
 AddCSLuaFile("attachment_vendor/client/cl_attachment_vendor_ready.lua");
+
+-- ensure custom font is sent to clients
+if (resource and resource.AddFile) then
+   resource.AddFile("resource/fonts/OpenSans_Condensed-Regular.ttf");
+end
 
 hook.Add("InitPostEntity", "AttachmentVendor:CheckAttachments", function()
    -- OBSOLETE ATTACHMENTS

@@ -1,13 +1,19 @@
 ATTACHMENT_VENDOR = {
+   -- Language settings
+   language = {
+      default = "en",        -- Default language ("de" for German, "en" for English)
+      fallback = "de"        -- Fallback language if translation not found
+   },
+   
    override = {
       enable = true  -- If this is set to true, Attachment Vendor will override functions in FAS2 and CW2
                      -- that deal with adding and removing weapon attachments.
                      -- In addition, these new functions will provide hooks for you to decide if an attachment
-                     -- should be added or removed and what happens when and attachment is added or removed.
+                     -- should be eeadded or removed and what happens when and attachment is added or removed.
    },
    
    ammo = {
-      sell = true,      -- Should the vendor sell ammo for weapons?
+      sell = false,      -- Should the vendor sell ammo for weapons?
       price = 50        -- Price of buying ammo  (1 clip worth)
    },
    
@@ -16,7 +22,7 @@ ATTACHMENT_VENDOR = {
    defaultAttachmentPrice = 100,             -- Default price for attachments that arent in the prices table below
    
    getAttachmentPrice = function(ply, price, vendor)
-      if (ply == vendor:Getowning_ent()) then
+      if (IsValid(vendor) and isfunction(vendor.Getowning_ent) and ply == vendor:Getowning_ent()) then
          return price * 0.75; -- Owner pays 75% of the attachment price
       else
          return price;

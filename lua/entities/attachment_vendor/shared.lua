@@ -1,9 +1,11 @@
 ENT.Base = "base_anim";
 ENT.Type = "anim";
-ENT.PrintName = "Attachment Vendor"
-ENT.Category = "Entities"
-ENT.Author = "Gambit"
+ENT.PrintName = "Attachment Vendor" -- Will be localized by the language system
+ENT.Category = "Attachment Vendor"
+ENT.Author = "Gambit & Paulus"
 ENT.Spawnable = true;
+
+ENT.IconOverride = "materials/CW2.0 Attachment Vendor/icon.png"
 
 function ENT:SetupDataTables()
    self:NetworkVar("Entity", 0, "owning_ent");
